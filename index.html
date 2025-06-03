@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimization -->
+    <title>LiveRoom — Real-Time Chat App | Connect Instantly</title>
+    <meta name="description" content="LiveRoom is a real-time chat platform with rooms, likes, dark mode, and admin panel. Join chat rooms, send messages instantly, and connect with others. Try the demo now!">
+    <meta name="keywords" content="real-time chat, chat rooms, live messaging, online chat, web chat application, instant messaging">
+    <meta name="author" content="LiveRoom Team">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://liveroom.chat/">
+    <meta property="og:title" content="LiveRoom — Real-Time Chat App">
+    <meta property="og:description" content="Create or join chat rooms, send messages live, like content and switch themes. Built with clean code architecture.">
+    <meta property="og:image" content="https://liveroom.chat/assets/og-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://liveroom.chat/">
+    <meta property="twitter:title" content="LiveRoom — Real-Time Chat App">
+    <meta property="twitter:description" content="Real-time chat platform with rooms, likes, and dark mode. Try the demo!">
+    <meta property="twitter:image" content="https://liveroom.chat/assets/og-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/landing.css" as="style">
+    <link rel="preload" href="js/landing.js" as="script">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LiveRoom",
+        "description": "Real-time chat application with rooms, likes, and admin panel",
+        "url": "https://liveroom.chat",
+        "applicationCategory": "CommunicationApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>💬 LiveRoom</h1>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <button id="themeToggle" class="btn btn-icon" aria-label="Toggle theme">🌙</button>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#tech" class="nav-link">Technology</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="index.php" class="btn btn-primary">Get Started</a>
+            </div>
+            <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Real-Time Chat Made Simple</h1>
+                <p class="hero-subtitle">
+                    Connect with friends, colleagues, and communities in beautiful chat rooms. 
+                    Built with clean code architecture and modern web technologies.
+                </p>
+                <div class="hero-buttons">
+                    <a href="index.php" class="btn btn-primary btn-large" id="getStartedBtn">Start Chatting</a>
+                    <a href="#demo" class="btn btn-secondary btn-large">View Demo</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Real-time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Page Refreshes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Possibilities</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="chat-preview">
+                    <!-- Live Demo Video -->
+                    <div class="demo-video-container">
+                        <video class="demo-preview" autoplay muted loop playsinline poster="assets/chat-preview.jpg">
+                            <source src="assets/liveroom-demo.mp4" type="video/mp4">
+                            <!-- Fallback для браузерів, що не підтримують відео -->
+                            <img src="assets/chat-preview.jpg" alt="LiveRoom Chat Preview" class="fallback-image">
+                        </video>
+                        <!-- Fallback анімований чат -->
+                        <div class="chat-window" id="chatFallback" style="display: none;">
+                            <div class="chat-header-preview">
+                                <div class="chat-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <span class="chat-title">General Chat</span>
+                            </div>
+                            <div class="chat-messages-preview">
+                                <div class="message-preview user1">
+                                    <div class="message-avatar">👤</div>
+                                    <div class="message-content">
+                                        <div class="message-name">Alice</div>
+                                        <div class="message-text">Hey everyone! 👋</div>
+                                    </div>
+                                </div>
+                                <div class="message-preview user2">
+                                    <div class="message-avatar">👨</div>
+                                    <div class="message-content">
+                                        <div class="message-name">Bob</div>
+                                        <div class="message-text">Welcome to LiveRoom! 🎉</div>
+                                    </div>
+                                </div>
+                                <div class="message-preview user3">
+                                    <div class="message-avatar">👩</div>
+                                    <div class="message-content">
+                                        <div class="message-name">Carol</div>
+                                        <div class="message-text">This is amazing! ❤️ 5</div>
+                                    </div>
+                                </div>
+                                <div class="typing-indicator">
+                                    <div class="typing-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <span>Someone is typing...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features</h2>
+                <p>Everything you need for modern real-time communication</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Secure Authentication</h3>
+                    <p>Password hashing, session management, and user role protection keep your conversations safe.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-Time Messaging</h3>
+                    <p>AJAX-powered chat with no page refreshes. Messages appear instantly as they're sent.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Multiple Chat Rooms</h3>
+                    <p>Create and join different rooms for various topics, teams, or communities.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Message Reactions</h3>
+                    <p>Like and react to messages with real-time like counters and user feedback.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Dark/Light Theme</h3>
+                    <p>Toggle between beautiful dark and light themes with persistent user preferences.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">👮</div>
+                    <h3>Admin Panel</h3>
+                    <p>Complete admin dashboard for user management, message moderation, and room control.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Responsive</h3>
+                    <p>Perfect experience on desktop, tablet, and mobile devices with adaptive design.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="feature-icon">🧹</div>
+                    <h3>Clean Architecture</h3>
+                    <p>Built with pure HTML/CSS/JS + PHP + MySQL. No frameworks, just clean, readable code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section id="tech" class="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <h2>Built With Modern Technologies</h2>
+                <p>Clean, efficient, and maintainable code without unnecessary complexity</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tech-icon">🌐</div>
+                    <h4>Frontend</h4>
+                    <p>HTML5, CSS3, Vanilla JavaScript</p>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tech-icon">⚙️</div>
+                    <h4>Backend</h4>
+                    <p>PHP 7.4+, Clean Architecture</p>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tech-icon">🗄️</div>
+                    <h4>Database</h4>
+                    <p>MySQL 5.7+, Optimized Queries</p>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="tech-icon">🔄</div>
+                    <h4>Real-time</h4>
+                    <p>AJAX Polling, JSON APIs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>See It In Action</h2>
+                <p>Experience the power of real-time communication</p>
+            </div>
+            <div class="demo-content">
+                <div class="demo-features">
+                    <div class="demo-feature" data-aos="slide-right" data-aos-delay="100">
+                        <div class="demo-step">1</div>
+                        <div class="demo-info">
+                            <h4>Quick Registration</h4>
+                            <p>Sign up in seconds with just username, email, and password</p>
+                        </div>
+                    </div>
+                    <div class="demo-feature" data-aos="slide-right" data-aos-delay="200">
+                        <div class="demo-step">2</div>
+                        <div class="demo-info">
+                            <h4>Join Chat Rooms</h4>
+                            <p>Browse available rooms or create your own for specific topics</p>
+                        </div>
+                    </div>
+                    <div class="demo-feature" data-aos="slide-right" data-aos-delay="300">
+                        <div class="demo-step">3</div>
+                        <div class="demo-info">
+                            <h4>Start Chatting</h4>
+                            <p>Send messages, react with likes, and enjoy real-time conversations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-cta" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Ready to Get Started?</h3>
+                    <p>Join thousands of users already chatting on LiveRoom</p>
+                    <a href="index.php" class="btn btn-primary btn-large" id="launchBtn">Launch LiveRoom</a>
+                    <div class="demo-links">
+                        <a href="chat.php?demo=true" class="demo-link">Try Demo</a>
+                        <span>•</span>
+                        <a href="admin.php" class="demo-link">Admin Panel</a>
+                    </div>
+                    <div class="demo-note">
+                        <small>💡 Demo credentials: admin / admin123</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter/Contact Section -->
+    <section id="contact" class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-info">
+                    <h2>Stay Updated</h2>
+                    <p>Get notified about new features, updates, and improvements to LiveRoom.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm" action="api/newsletter.php" method="POST">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <div class="form-message" id="formMessage"></div>
+                    <div class="form-note">
+                        <small>We respect your privacy. Unsubscribe at any time.</small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>💬 LiveRoom</h3>
+                    <p>Real-time chat application built with clean architecture and modern web technologies.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub">📱</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="#features">Real-time messaging</a></li>
+                        <li><a href="#features">Multiple chat rooms</a></li>
+                        <li><a href="#features">User authentication</a></li>
+                        <li><a href="#features">Admin panel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Technology</h4>
+                    <ul>
+                        <li><a href="#tech">HTML/CSS/JavaScript</a></li>
+                        <li><a href="#tech">PHP + MySQL</a></li>
+                        <li><a href="#tech">AJAX Communication</a></li>
+                        <li><a href="#tech">Responsive Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get Started</h4>
+                    <ul>
+                        <li><a href="index.php">Login / Register</a></li>
+                        <li><a href="#demo">View Demo</a></li>
+                        <li><a href="admin.php">Admin Panel</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LiveRoom. Built with ❤️ using clean code principles.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+
+    <!-- Scripts -->
+    <script src="js/landing.js"></script>
+    
+    <!-- Analytics (optional) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
+</body>
+</html>
